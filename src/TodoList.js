@@ -21,6 +21,7 @@ class TodoList extends Component {
       <Todo
         key={todo.id}
         text={todo.text}
+        removeTodo={this.remove.bind(this, todo.id)}
       />);
     return (
       <div>
