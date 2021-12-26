@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
+import NewTodoForm from './NewTodoForm';
 
 class TodoList extends Component {
   constructor(props) {
@@ -10,6 +11,10 @@ class TodoList extends Component {
         { text: "Go to gym", id: 2 }
       ]
     }
+  }
+
+  add(todo) {
+    this.setState(state => ({ ...state, todo }));
   }
 
   remove(id) {
@@ -27,6 +32,7 @@ class TodoList extends Component {
       <div>
         <h1>TodoList</h1>
         {todos}
+        <NewTodoForm addTodo={() => this.add} />
       </div>
     );
   }
