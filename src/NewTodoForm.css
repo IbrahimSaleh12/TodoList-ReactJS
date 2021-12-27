@@ -1,0 +1,28 @@
+.NewTodoForm {
+  margin-top: 2rem;
+}
+
+.NewTodoForm form label {
+  display: block;
+  margin-right: 14.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.NewTodoForm form input {
+  padding: 0.8rem 1.2rem;
+  width: 52%;
+}
+
+.NewTodoForm form button {
+  padding: 0.9rem;
+  background-color: #e76d6d;
+  border: none;
+  color: #fff;
+  margin-left: 0.2rem;
+}
+
+.NewTodoForm form button:hover {
+  background-color: #e92f2f;
+  cursor: pointer;
+  font-weight: bold;
+}

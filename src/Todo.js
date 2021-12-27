@@ -31,7 +31,7 @@ class Todo extends Component {
         <div className="Todo">
           <form onSubmit={this.handleUpdate}>
             <input type="text" value={this.state.task} name="task" onChange={this.handleChange} />
-            <button>Save</button>
+            <button className="btn-save">Save</button>
           </form>
         </div>
       );
@@ -39,8 +39,10 @@ class Todo extends Component {
       result = (
         <div className="Todo">
           <li className={this.props.completed ? "Todo-task completed" : "Todo-task"} onClick={this.handleToggle}>{this.props.task}</li>
-          <button onClick={this.toggleForm}>Edit</button>
-          <button onClick={this.props.removeTodo}>X</button>
+          <div>
+            <button onClick={this.toggleForm}><i className="fas fa-pen"></i></button>
+            <button onClick={this.props.removeTodo}><i className="fas fa-trash"></i></button>
+          </div>
         </div>
 
       );
