@@ -1,32 +1,34 @@
 import React, { Component } from "react";
+import uuid from "../node_modules/uuid/dist/v4";
 
 class NewTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: ""
+      task: ""
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(evt) {
-    this.setState({ text: evt.target.value })
+    this.setState({ [evt.target.name]: evt.target.value })
   }
   handleSubmit(evt) {
-    const random = Math.floor(Math.random() * 1000);
     evt.preventDefault();
-    this.props.addTodo({ ...this.state, id: random });
-    this.setState({ todo: "" });
+    this.props.createTodo({ ...this.state, id: uuid() });
+    this.setState({ task: "" });
   }
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="text">New Todo</label>
+        <label htmlFor="task">New Todo</label>
         <input
-          type="text"
-          id="text"
-          value={this.state.text}
+          type="task"
+          id="task"
+          value={this.state.task}
           onChange={this.handleChange}
+          placeholder="New Todo"
+          name="task"
         />
         <button>Add Todo</button>
       </form>
